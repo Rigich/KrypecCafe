@@ -104,6 +104,10 @@
     </style>
 </head>
 <body>
+    <audio autoplay loop id="backgroundAudio">
+        <source src="pilya.mp3" type="audio/mpeg">
+        Ваш браузер занадто тупий для цієї музики.
+    </audio>
     <div class="navbar">
         <a href="#"><img src="krypec.png" alt="Крупець"></a>
         <div class="nav-links">
@@ -154,5 +158,19 @@
     <footer>
         <p>&copy; 2024 Кафе "Крупец"</p>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById("backgroundAudio");
+            
+            // Перевірка чи браузер підтримує відтворення аудіо
+            if (audio.canPlayType) {
+                // Перевірка чи можна відтворити аудіо автоматично
+                if (audio.autoplay === false) {
+                    // Показуємо повідомлення, якщо відтворення аудіо не вдалося
+                    alert("У вас не грає музика через те, що у вас нема дозволу на програвання музики.");
+                }
+            }
+        });
+    </script>
 </body>
 </html>
